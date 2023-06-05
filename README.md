@@ -4,11 +4,11 @@ Analysis of palaeoecological records across South-East Asia to determine the evi
 
 Code contributors: <a href="https://scholar.google.com/citations?user=CyGOzPEAAAAJ&hl=en">Rebecca Hamilton</a>, <a href="https://globalecologyflinders.com/people/#DIRECTOR">Corey J. A. Bradshaw</a>, <a href="https://globalecologyflinders.com/people/#COORDINATOR">Frédérik Saltré</a>
 
+<img align="center" src="www/forest2savanna.png" alt="thylacine" width="700" style="margin-top: 20px">
+
 Accompanies paper (in review):
 
 <a href="https://scholar.google.com/citations?user=CyGOzPEAAAAJ&hl=en">Hamilton, R</a>, <a href="https://www.shh.mpg.de/person/53942/2375">N Amano</a>, <a href="https://globalecologyflinders.com/people/#DIRECTOR">CJA Bradshaw</a>, <a href="https://globalecologyflinders.com/people/#COORDINATOR">F Saltré</a>, <a href="https://www.shh.mpg.de/person/101971/2164017">R Patalano</a>, <a href="https://scholar.google.com.au/citations?user=A7JatqAAAAAJ&hl=en">D Penny</a>, <a href="https://researchprofiles.anu.edu.au/en/persons/janelle-stevenson">J Stevenson</a>, <a href="https://www.shh.mpg.de/person/104532/2184779">J Wolfhagen</a>, <a href="https://www.shh.mpg.de/179129/patrickroberts">P Roberts</a>. 2023. Seasonal forests, not long-term savanna corridors, dominated in South-East Asia during the Last Glacial Maximum.
-
-<img align="center" src="www/forest2savanna.png" alt="thylacine" width="700" style="margin-top: 20px">
 
 ## Abstract
 We did new qualitative and statistical analysis of 59 palaeoecological records across South-East Asia to show that, instead of swings between open savanna and dense, ever-wet rain forest ecosystems, the climatic changes of the Last Glacial Period and particularly the Last Glacial Maximum, involved more fluid transitions between lowland rainforest, seasonally dry ‘savanna’ forest, and tropical montane forest. This ‘hybrid’ forest-savanna biome provides a route beyond currently accepted notions of binary ecologies for the region, and yields new insights into ecological resilience of this region in the past and future.
