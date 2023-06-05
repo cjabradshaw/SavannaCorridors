@@ -6,7 +6,7 @@ Accompanies paper (in review):
 
 Hamilton, R, N Amano, CJA Bradshaw, F Saltré, R Patalano, D Penny, J Stevenson, J Wolfhagen, P Roberts. 2023. Seasonal forests, not long-term savanna corridors, dominated in South-East Asia during the Last Glacial Maximum.
 
-<img align="center" src="www/forest2savanna.png" alt="thylacine" width="400" style="margin-top: 20px">
+<img align="center" src="www/forest2savanna.png" alt="thylacine" width="700" style="margin-top: 20px">
 
 ## Abstract
 We did new qualitative and statistical analysis of 59 palaeoecological records across South-East Asia to show that, instead of swings between open savanna and dense, ever-wet rain forest ecosystems, the climatic changes of the Last Glacial Period and particularly the Last Glacial Maximum, involved more fluid transitions between lowland rainforest, seasonally dry ‘savanna’ forest, and tropical montane forest. This ‘hybrid’ forest-savanna biome provides a route beyond currently accepted notions of binary ecologies for the region, and yields new insights into ecological resilience of this region in the past and future.
