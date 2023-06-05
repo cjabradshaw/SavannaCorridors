@@ -10,6 +10,7 @@ Hamilton, R, N Amano, CJA Bradshaw, F Saltré, R Patalano, D Penny, J Stevenson,
 We did new qualitative and statistical analysis of 59 palaeoecological records across South-East Asia to show that, instead of swings between open savanna and dense, ever-wet rain forest ecosystems, the climatic changes of the Last Glacial Period and particularly the Last Glacial Maximum, involved more fluid transitions between lowland rainforest, seasonally dry ‘savanna’ forest, and tropical montane forest. This ‘hybrid’ forest-savanna biome provides a route beyond currently accepted notions of binary ecologies for the region, and yields new insights into ecological resilience of this region in the past and future.
 
 ## Scripts
+- <a href="https://github.com/cjabradshaw/SavannaCorridors/blob/main/scripts/SavannaCorridorGithub.R"><code>SavannaCorridorGithub.R</code></a>
 
 ## Data
 Site-specific palaeoecological proxy series
