@@ -6,10 +6,6 @@
 ## Rebecca Hamilton, Corey Bradshaw, Frédérik Saltré
 ## June 2023
 
-## install relevant packages
-install.packages("tmvnsim")
-install.packages("wCorr")
-
 ## load libraries
 library(spatstat)
 library(gstat)
