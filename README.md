@@ -6,7 +6,7 @@ Contributors: <a href="https://scholar.google.com/citations?user=CyGOzPEAAAAJ&hl
 
 Accompanies paper (in review):
 
-Hamilton, R, N Amano, CJA Bradshaw, F Saltré, R Patalano, D Penny, J Stevenson, J Wolfhagen, P Roberts. 2023. Seasonal forests, not long-term savanna corridors, dominated in South-East Asia during the Last Glacial Maximum.
+<a href="https://scholar.google.com/citations?user=CyGOzPEAAAAJ&hl=en">Hamilton, R</a>, <a href="https://www.shh.mpg.de/person/53942/2375">N Amano</a>, <a href="https://globalecologyflinders.com/people/#DIRECTOR">CJA Bradshaw</a>, <a href="https://globalecologyflinders.com/people/#COORDINATOR">F Saltré</a>, <a href="https://www.shh.mpg.de/person/101971/2164017">R Patalano</a>, <a href="https://scholar.google.com.au/citations?user=A7JatqAAAAAJ&hl=en">D Penny</a>, <a href="https://researchprofiles.anu.edu.au/en/persons/janelle-stevenson">J Stevenson</a>, <a href="https://www.shh.mpg.de/person/104532/2184779">J Wolfhagen</a>, <a href="https://www.shh.mpg.de/179129/patrickroberts">P Roberts</a>. 2023. Seasonal forests, not long-term savanna corridors, dominated in South-East Asia during the Last Glacial Maximum.
 
 <img align="center" src="www/forest2savanna.png" alt="thylacine" width="700" style="margin-top: 20px">
 
