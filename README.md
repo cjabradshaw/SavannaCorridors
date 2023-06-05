@@ -12,7 +12,7 @@ We did new qualitative and statistical analysis of 59 palaeoecological records a
 ## Scripts
 - <a href="https://github.com/cjabradshaw/SavannaCorridors/blob/main/scripts/SavannaCorridorGithub.R"><code>SavannaCorridorGithub.R</code></a>
 
-## Data
+## <a href="https://github.com/cjabradshaw/SavannaCorridors/tree/main/data">Data</a>
 Site-specific palaeoecological proxy series
 - <em>G6-4.csv</em>
 - <em>SH19014_grass.csv</em>
