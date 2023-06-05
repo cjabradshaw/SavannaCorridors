@@ -2,7 +2,7 @@
 
 Analysis of palaeoecological records across South-East Asia to determine the evidence for regime shifts between open savannas and dense tropical forests occurred since the Last Glacial Maximum
 
-Contributors: <a href="https://www.researchgate.net/profile/Rebecca-Hamilton-7">Rebecca Hamilton</a>, <a href="https://globalecologyflinders.com/people/#DIRECTOR">Corey J. A. Bradshaw</a>, <a href="https://globalecologyflinders.com/people/#COORDINATOR">Frédérik Saltré</a>
+Contributors: <a href="https://scholar.google.com/citations?user=CyGOzPEAAAAJ&hl=en">Rebecca Hamilton</a>, <a href="https://globalecologyflinders.com/people/#DIRECTOR">Corey J. A. Bradshaw</a>, <a href="https://globalecologyflinders.com/people/#COORDINATOR">Frédérik Saltré</a>
 
 Accompanies paper (in review):
 
