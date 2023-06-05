@@ -50,7 +50,7 @@ Site-specific palaeoecological proxy series
 - <em>mbelen.csv</em>
 
 ## <a href="https://github.com/cjabradshaw/SavannaCorridors/tree/main/data">Supplementary data</a>
-- database descriptors (Excel file)
+- <a href="https://github.com/cjabradshaw/SavannaCorridors/blob/main/supplementary/supplementary_data_SC_draft1.xlsx">database descriptors</a> (Excel file)
 
 ## R packages
 Scripts require following R libraries
