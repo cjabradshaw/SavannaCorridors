@@ -2,6 +2,8 @@
 
 Analysis of palaeoecological records across South-East Asia to determine the evidence for regime shifts between open savannas and dense tropical forests occurred since the Last Glacial Maximum
 
+Contributors: <a href="https://www.researchgate.net/profile/Rebecca-Hamilton-7">Rebecca Hamilton</a>, <a href="https://globalecologyflinders.com/people/#DIRECTOR">Corey J. A. Bradshaw</a>, <a href="https://globalecologyflinders.com/people/#COORDINATOR">Frédérik Saltré</a>
+
 Accompanies paper (in review):
 
 Hamilton, R, N Amano, CJA Bradshaw, F Saltré, R Patalano, D Penny, J Stevenson, J Wolfhagen, P Roberts. 2023. Seasonal forests, not long-term savanna corridors, dominated in South-East Asia during the Last Glacial Maximum.
