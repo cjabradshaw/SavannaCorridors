@@ -4,7 +4,7 @@ Analysis of palaeoecological records across South-East Asia to determine the evi
 
 Code contributors: <a href="https://scholar.google.com/citations?user=CyGOzPEAAAAJ&hl=en">Rebecca Hamilton</a>, <a href="https://globalecologyflinders.com/people/#DIRECTOR">Corey J. A. Bradshaw</a>, <a href="https://globalecologyflinders.com/people/#COORDINATOR">Frédérik Saltré</a>
 
-<img align="center" src="www/forest2savanna.png" alt="thylacine" width="700" style="margin-top: 20px">
+<img align="center" src="www/forest2savanna.png" alt="thylacine" width="800" style="margin-top: 20px">
 
 Accompanies paper (in review):
 
