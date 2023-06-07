@@ -187,35 +187,20 @@ for (d in 1:length(dat.vec)) {
   r.lo <- ifelse(is.infinite(r.lo)==T, NA, r.lo)
   r.up <- apply(valrmat, MARGIN=2, quantile, probs=0.975, na.rm=T)
   r.up <- ifelse(is.infinite(r.up)==T, NA, r.up)
-  
-  par(mfrow=c(3,1))
-  plot((agest), r.md, type="l", ylim=c(min(r.lo,na.rm=T), max(r.up,na.rm=T)))
-  lines((agest), r.lo, lty=2, col="red")
-  lines((agest), r.up, lty=2, col="red")
-  
+   
   approx.med <- approx(dat$median, dat$open, xout = agest) # grass/dryland %
   approx.scmed <- scale(approx.med$y, center=F, scale=T) # scale
   approx.scr <- rev(log(rev(approx.scmed)[2:length(approx.scmed)] / rev(approx.scmed)[1:(length(approx.scmed)-1)])) # instantaneous exponential rate of change; r <- log(Nt1/Nt)
-  lines(agest[2:length(agest)],approx.scr, lty=1, lwd=3, col="green")
   
   # scaled values
   sc.md <- apply(valscmat, MARGIN=2, median, na.rm=T)
   sc.lo <- apply(valscmat, MARGIN=2, quantile, probs=0.025, na.rm=T)
   sc.up <- apply(valscmat, MARGIN=2, quantile, probs=0.975, na.rm=T)
-  plot((agest), sc.md, type="l", ylim=c(min(sc.lo,na.rm=T), max(sc.up,na.rm=T)))
-  lines((agest), sc.lo, lty=2, col="red")
-  lines((agest), sc.up, lty=2, col="red")
-  lines(dat$median, scale(dat$open, center=F, scale=T), lty=1, lwd=3, col="green")
   
   # interpolated values
   val.md <- apply(valapproxmat, MARGIN=2, median, na.rm=T)
   val.lo <- apply(valapproxmat, MARGIN=2, quantile, probs=0.025, na.rm=T)
   val.up <- apply(valapproxmat, MARGIN=2, quantile, probs=0.975, na.rm=T)
-  plot((agest), val.md, type="l", ylim=c(min(val.lo,na.rm=T), max(val.up,na.rm=T)))
-  lines((agest), val.lo, lty=2, col="red")
-  lines((agest), val.up, lty=2, col="red")
-  lines(dat$median, dat$open, lty=1, lwd=3, col="green")
-  par(mfrow=c(1,1))
   
   # save output data.frame
   out <- data.frame(agest, val.md, val.up, val.lo, sc.md, sc.up, sc.lo, r.md, r.up, r.lo)
