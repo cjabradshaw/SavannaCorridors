@@ -121,6 +121,7 @@ plot(dat21$median, dat21$open, type="l", xlab="years BP")
 plot(dat22$median, dat22$open, type="l", xlab="years BP")
 plot(dat23$median, dat23$open, type="l", xlab="years BP")
 plot(dat24$median, dat24$open, type="l", xlab="years BP")
+par(mfrow=c(1,1))
 
 # d13C
 par(mfrow=c(3,4)) # adjust for number of records
