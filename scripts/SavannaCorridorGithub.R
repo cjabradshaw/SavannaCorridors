@@ -388,6 +388,8 @@ out32 <- get(name.out[32])
 allSpatP <- read.csv("data_all_Spat.csv")
 
 ## CORRELATE DATASETS using all Spat data
+## the following code is an example of a bivariate spatially constrained correlation between
+## proxies 8 and 32; the full correlation matrix values are presented in the following section
 
 par(mfrow=c(2,1))
 plot(out8$agest, out8$val.md, type="l", ylim=c(min(out8$val.lo,na.rm=T),max(out8$val.up,na.rm=T)))
