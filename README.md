@@ -1,4 +1,4 @@
-# Savanna corridors of South-East Asia since the Last Glacial Maximum
+# Testing evidence for savanna corridors in South-East Asia since the Last Glacial Maximum
 
 Analysis of palaeoecological records across South-East Asia to determine the evidence for regime shifts between open savannas and dense tropical forests occurred since the Last Glacial Maximum
 
