@@ -17,7 +17,7 @@ We did new qualitative and statistical analysis of 59 palaeoecological records a
 - <a href="https://github.com/cjabradshaw/SavannaCorridors/blob/main/scripts/SavannaCorridorGithub.R"><code>SavannaCorridorGithub.R</code></a>
 
 ## <a href="https://github.com/cjabradshaw/SavannaCorridors/tree/main/data">Data</a>
-Site-specific palaeoecological proxy series (raw data)
+### Site-specific palaeoecological proxy series (raw data)
 - <em>G6-4.csv</em>
 - <em>SH19014_grass.csv</em>
 - <em>G5_6_149P2.csv</em>
@@ -51,8 +51,11 @@ Site-specific palaeoecological proxy series (raw data)
 - <em>GeoB10053_7.csv</em>
 - <em>mbelen.csv</em>
 
-Compiled, age-resampled, standardised compilation of time series (34 ka to 2 ka), with site coordinates (lon/lat)
+### Compiled, age-resampled, standardised compilation of time series (34 ka to 2 ka), with site coordinates (lon/lat)
 - <em>SC_all_SACor.csv</em>
+
+### Spatially constrained bivariate correlations to reproduce site-by-site correlation heatmap
+- <em>cor_matrix_allmean.csv</em>
 
 ## <a href="https://github.com/cjabradshaw/SavannaCorridors/tree/main/data">Supplementary data</a>
 - <a href="https://github.com/cjabradshaw/SavannaCorridors/blob/main/supplementary/supplementary_data_SC_draft1.xlsx">database descriptors</a> (Excel file)
