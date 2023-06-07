@@ -458,6 +458,7 @@ print(c(corN.lo, corN.up))
 ##############################################################################
 ## STEP 4 - CORRELATION HEAT MAP
 ##############################################################################
+## this step generates the correlation matrix shown in Figure 5 in the manuscript
 # import data
 samp1 <- read.csv("cor_matrix_allmean.csv")
 dsNam.vec <- samp1$X
@@ -479,7 +480,8 @@ ggplot(samp1.exp, aes(X, Y, fill= cor)) +
 ##############################################################################
 ## STEP 5 - VOLATILITY
 ##############################################################################
-### Volatility using interpolated values scaled to a single series (standardisation)
+## this step generates the combined time series limits shown in Figure 6 in the manuscript
+## Volatility using interpolated values scaled to a single series (standardisation)
 
 # Datasets1 = all non-lowland records
 val.md.comb <- c(NPK2_grass.out$val.md,
