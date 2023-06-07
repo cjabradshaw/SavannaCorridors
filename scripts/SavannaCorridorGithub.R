@@ -309,7 +309,7 @@ for (k in 4:spatdat.size[2]) {
 }
 
 plot(spatdatSpat,type = "l")
-write.csv(BecSpat, "data_pollenall_Spat.csv")
+write.csv(spatdatSpat, "data_pollenall_Spat.csv")
 
 
 # these are all samples (pollen and d13C) that include at least 1 x LGM sample, and do not have giant data gaps
