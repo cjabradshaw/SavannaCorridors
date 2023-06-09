@@ -25,40 +25,40 @@ library(hrbrthemes)
 ###########################################################################
 
 #POLLEN for analysis
-dat1 <- read.csv("G6-4.csv", header=T)
-dat2 <- read.csv("SH19014_grass.csv", header=T)
-dat3 <- read.csv("G5_6_149P2.csv", header=T)
-dat4 <- read.csv("NPK2.csv", header=T)
-dat5 <- read.csv("hordorli.csv", header=T)
-dat6 <- read.csv("18300.csv", header=T)
-dat7 <- read.csv("18323.csv", header=T)
-dat8 <- read.csv("18302.csv", header=T)
-dat9 <- read.csv("CB19.csv", header=T)
-dat10 <- read.csv("MD063075.csv", header=T)
-dat11 <- read.csv("NS-0725.csv", header=T)
-dat12 <- read.csv("17964.csv", header=T)
-dat13 <- read.csv("DDA.csv", header=T)
-dat14 <- read.csv("G4_K12P1.csv", header=T)
-dat15 <- read.csv("PB-A.csv", header=T)
-dat16 <- read.csv("GEOB10069_3.csv", header=T)
-dat17 <- read.csv("PSS.csv", header=T)
-dat18 <- read.csv("GeoB10053_7.csv", header=T)
-dat19 <- read.csv("G5_2_056P.csv", header=T)
-dat20 <- read.csv("LL2.csv", header=T)
-dat21 <- read.csv("RD-3.csv", header=T)
-dat22 <- read.csv("KUM3.csv", header=T)
-dat23 <- read.csv("G4_K4P3.csv", header=T)
-dat24 <- read.csv("BYK2.csv", header=T)
+dat1 <- read.csv("./data/G6-4.csv", header=T)
+dat2 <- read.csv("./data/SH19014_grass.csv", header=T)
+dat3 <- read.csv("./data/G5_6_149P2.csv", header=T)
+dat4 <- read.csv("./data/NPK2.csv", header=T)
+dat5 <- read.csv("./data/hordorli.csv", header=T)
+dat6 <- read.csv("./data/18300.csv", header=T)
+dat7 <- read.csv("./data/18323.csv", header=T)
+dat8 <- read.csv("./data/18302.csv", header=T)
+dat9 <- read.csv("./data/CB19.csv", header=T)
+dat10 <- read.csv("./data/MD063075.csv", header=T)
+dat11 <- read.csv("./data/NS-0725.csv", header=T)
+dat12 <- read.csv("./data/17964.csv", header=T)
+dat13 <- read.csv("./data/DDA.csv", header=T)
+dat14 <- read.csv("./data/G4_K12P1.csv", header=T)
+dat15 <- read.csv("./data/PB-A.csv", header=T)
+dat16 <- read.csv("./data/GEOB10069_3.csv", header=T)
+dat17 <- read.csv("./data/PSS.csv", header=T)
+dat18 <- read.csv("./data/GeoB10053_7.csv", header=T)
+dat19 <- read.csv("./data/G5_2_056P.csv", header=T)
+dat20 <- read.csv("./data/LL2.csv", header=T)
+dat21 <- read.csv("./data/RD-3.csv", header=T)
+dat22 <- read.csv("./data/KUM3.csv", header=T)
+dat23 <- read.csv("./data/G4_K4P3.csv", header=T)
+dat24 <- read.csv("./data/BYK2.csv", header=T)
 
 #d13C for analysis
-dat25 <- read.csv("TOW9.csv", header=T)
-dat26 <- read.csv("BJ8_03_91GGC.csv", header=T)
-dat27 <- read.csv("GEOB10069_3.csv", header=T)
-dat28 <- read.csv("MAT10_2B.csv", header=T)
-dat29 <- read.csv("SO189_144KL.csv", header=T)
-dat30 <- read.csv("MC1.csv", header=T)
-dat31 <- read.csv("GeoB10053_7.csv", header=T)
-dat32 <- read.csv("mbelen.csv", header=T)
+dat25 <- read.csv("./data/TOW9.csv", header=T)
+dat26 <- read.csv("./data/BJ8_03_91GGC.csv", header=T)
+dat27 <- read.csv("./data/GEOB10069_3.csv", header=T)
+dat28 <- read.csv("./data/MAT10_2B.csv", header=T)
+dat29 <- read.csv("./data/SO189_144KL.csv", header=T)
+dat30 <- read.csv("./data/MC1.csv", header=T)
+dat31 <- read.csv("./data/GeoB10053_7.csv", header=T)
+dat32 <- read.csv("./data/mbelen.csv", header=T)
 
 # make variable of interest consistent
 dat1$open <- dat1$grassland_drylandpc
@@ -270,7 +270,7 @@ write.csv(mbelen.out,"mbelenout.csv")
 # create subset of data to analyse
 # these are all pollen samples that include at least 1 x LGM sample, and do not have giant data gaps
 
-spatdat <- read.table("SC_all_SACor.csv", header=T,sep=",") 
+spatdat <- read.table("./data/SC_all_SACor.csv", header=T,sep=",") 
 spatdat.size <- dim(spatdat)
 nld <- 10000
 
@@ -460,7 +460,7 @@ print(c(corN.lo, corN.up))
 ##############################################################################
 ## this step generates the correlation matrix shown in Figure 5 in the manuscript
 # import data
-samp1 <- read.csv("cor_matrix_allmean.csv")
+samp1 <- read.csv("./data/cor_matrix_allmean.csv")
 dsNam.vec <- samp1$X
 samp1.exp <- expand.grid(X=dsNam.vec, Y=dsNam.vec)
 samp1.exp$cor <- 0
