@@ -2,7 +2,7 @@
 
 Analysis of palaeoecological records across South-East Asia to determine the evidence for regime shifts between open savannas and dense tropical forests occurred since the Last Glacial Maximum
 
-Code contributors: <a href="https://github.com/rebjham">Rebecca Hamilton</a>, <a href="https://github.com/cjabradshaw">Corey J. A. Bradshaw</a>, <a href="https://github.com/FredSaltre">Frédérik Saltré</a>
+Code contributors: <a href="https://github.com/rebjham">Rebecca Hamilton</a>, <a href="https://github.com/cjabradshaw">Corey J. A. Bradshaw</a>, <a href="https://github.com/FredSaltre">Frédérik Saltré</a>, <a href="https://github.com/wolfhagenj">Jesse Wolfhagen</a>
 
 <img align="center" src="www/forest2savanna.png" alt="thylacine" width="800" style="margin-top: 20px">
 
