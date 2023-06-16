@@ -33,9 +33,9 @@ We did new qualitative and statistical analysis of 59 palaeoecological records a
 - <em>DDA.csv</em>
 - <em>G4_K12P1.csv</em>
 - <em>PB-A.csv</em>
-- <em>GEOB10069-3.csv</em>
+- <em>GEOB100693.csv</em>
 - <em>PSS.csv</em>
-- <em>GeoB10053-7.csv</em>
+- <em>GeoB100537.csv</em>
 - <em>G5_2_056P.csv</em>
 - <em>LL2.csv</em>
 - <em>RD-3.csv</em>
@@ -44,11 +44,9 @@ We did new qualitative and statistical analysis of 59 palaeoecological records a
 - <em>BYK2.csv</em>
 - <em>TOW9.csv</em>
 - <em>BJ8_03_91GGC.csv</em>
-- <em>GEOB10069_3.csv</em>
 - <em>MAT10_2B.csv</em>
 - <em>SO189_144KL.csv</em>
 - <em>MC1.csv</em>
-- <em>GeoB10053_7.csv</em>
 - <em>mbelen.csv</em>
 
 ### Compiled, age-resampled, standardised compilation of time series (34 ka to 2 ka), with site coordinates (lon/lat)
