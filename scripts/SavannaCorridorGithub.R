@@ -76,7 +76,7 @@ dat12$open <- dat12$herbs_pc
 dat13$open <- dat13$grass_drylandpc
 dat14$open <- dat14$grass_woodland_drylandpc
 dat15$open <- dat15$grass_pc
-dat16$open <- dat16$C4_pc
+dat16$open <- dat16$c4herbs_pc
 dat17$open <- dat17$non_forest_drylandpc
 dat18$open <- dat18$grass_pc
 dat19$open <- dat19$grass_woodland_pc
