@@ -76,7 +76,7 @@ dat12$open <- dat12$herbs_pc
 dat13$open <- dat13$grass_drylandpc
 dat14$open <- dat14$grass_woodland_drylandpc
 dat15$open <- dat15$grass_pc
-dat16$open <- dat16$c4herbs_pc
+dat16$open <- dat16$C4_pc
 dat17$open <- dat17$non_forest_drylandpc
 dat18$open <- dat18$grass_pc
 dat19$open <- dat19$grass_woodland_pc
@@ -162,7 +162,7 @@ for (d in 1:length(dat.vec)) {
   
   dat <- eval(as.name(dat.vec[d]))
   
-  valapproxmat <- valscmat <- valrmat <- matrix(data=NA, nrow=iter, ncol=length(agest))
+  valapproxmat <- valzmat <- valscmat <- valrmat <- matrix(data=NA, nrow=iter, ncol=length(agest))
   for (i in 1:iter) {
     
     age.it <- sd <- rep(NA,dim(dat)[1])
@@ -173,8 +173,9 @@ for (d in 1:length(dat.vec)) {
     
     val.approx <- approx(age.it, dat$open, xout = agest) # grassland/dryland %
     valapproxmat[i,] <- val.approx$y
-    valscmat[i,] <- scale(val.approx$y, center=F, scale=T) # scale #change to center = F for SPAC
-    valrmat[i,2:length(val.approx$x)] <- rev(log(rev(valscmat[i,])[2:length(valscmat[i,])] / rev(valscmat[i,])[1:(length(valscmat[i,])-1)])) # instantaneous exponential rate of change; r <- log(Nt1/Nt)
+    valzmat[i,] <- scale(val.approx$y, center=T, scale=T) #scaled and centered (Z score)
+    valscmat[i,] <- scale(val.approx$y, center=F, scale=T) # scaled, not centered (for SPAC)
+    valrmat[i,2:length(val.approx$x)] <- rev(log(rev(valzmat[i,])[2:length(valzmat[i,])] / rev(valzmat[i,])[1:(length(valzmat[i,])-1)])) # instantaneous exponential rate of change; r <- log(Nt1/Nt)
     
     if (i %% itdiv==0) print(i) 
     
@@ -189,8 +190,14 @@ for (d in 1:length(dat.vec)) {
   r.up <- ifelse(is.infinite(r.up)==T, NA, r.up)
    
   approx.med <- approx(dat$median, dat$open, xout = agest) # grass/dryland %
-  approx.scmed <- scale(approx.med$y, center=F, scale=T) # scale
+  approx.zmed <- scale(approx.med$y, center=T, scale=T) # scaled and centered
+  approx.scmed <- scale(approx.med$y, center=F, scale=T) # scaled
   approx.scr <- rev(log(rev(approx.scmed)[2:length(approx.scmed)] / rev(approx.scmed)[1:(length(approx.scmed)-1)])) # instantaneous exponential rate of change; r <- log(Nt1/Nt)
+  
+  #scaled and centered values (z scores)
+  z.md <- apply(valzmat, MARGIN=2, median, na.rm=T)
+  z.lo <- apply(valzmat, MARGIN=2, quantile, probs=0.025, na.rm=T)
+  z.up <- apply(valzmat, MARGIN=2, quantile, probs=0.975, na.rm=T)
   
   # scaled values
   sc.md <- apply(valscmat, MARGIN=2, median, na.rm=T)
@@ -203,7 +210,7 @@ for (d in 1:length(dat.vec)) {
   val.up <- apply(valapproxmat, MARGIN=2, quantile, probs=0.975, na.rm=T)
   
   # save output data.frame
-  out <- data.frame(agest, val.md, val.up, val.lo, sc.md, sc.up, sc.lo, r.md, r.up, r.lo)
+  out <- data.frame(agest, val.md, val.up, val.lo, z.md, z.up, z.lo, sc.md, sc.up, sc.lo, r.md, r.up, r.lo)
   assign(name.out[d], out)
   
   print("####################")
@@ -528,6 +535,24 @@ abline(v=29000, lty=2, col="red")
 abline(v=12000, lty=2, col="red")
 
 # upper/lower (scaled)
+z.lo.comb <- data.frame(NPK2_grass.out$z.lo,
+                         hordorli_grass.out$z.lo,
+                         DDA_grass.out$z.lo,
+                         PB_A_grass.out$z.lo,
+                         PSS_nonforest.out$z.lo,
+                         TOW9.out$z.lo,
+                         MAT10_2B.out$z.lo,
+                         mbelen.out$z.lo)
+
+z.up.comb <- data.frame(NPK2_grass.out$z.up,
+                         hordorli_grass.out$z.up,
+                         DDA_grass.out$z.up,
+                         PB_A_grass.out$z.up,
+                         PSS_nonforest.out$z.up,
+                         TOW9.out$z.up,
+                         MAT10_2B.out$z.up,
+                         mbelen.out$z.up)
+
 sc.lo.comb <- data.frame(NPK2_grass.out$sc.lo,
                          hordorli_grass.out$sc.lo,
                          DDA_grass.out$sc.lo,
@@ -551,10 +576,10 @@ itdiv6 <- iter6/10
 trend.mean.mat <- matrix(data=NA, nrow=iter6, ncol=length(agest))
 
 for (i in 1:iter6) {
-  comb.ran.it <- matrix(data=NA,nrow=length(agest), ncol=dim(sc.up.comb)[2])
+  comb.ran.it <- matrix(data=NA,nrow=length(agest), ncol=dim(z.up.comb)[2])
   for (t in 1:length(agest)) {
-    for (r in 1:dim(sc.up.comb)[2]) {
-      comb.ran.it[t,r] <- runif(1, min=sc.lo.comb[t,r], max=sc.up.comb[t,r])
+    for (r in 1:dim(z.up.comb)[2]) {
+      comb.ran.it[t,r] <- runif(1, min=z.lo.comb[t,r], max=z.up.comb[t,r])
     } # end r
   } # end t
   trend.mean.mat[i,] <- apply(comb.ran.it, MARGIN=1, median, na.rm=T)
@@ -603,27 +628,27 @@ abline(v=15500, lty=2, col="red")
 abline(v=12000, lty=2, col="red")
 
 # upper/lower (scaled)
-sc.lo.comb <- data.frame(NPK2_grass.out$sc.lo,
-                         hordorli_grass.out$sc.lo,
-                         DDA_grass.out$sc.lo,
-                         PB_A_grass.out$sc.lo,
-                         PSS_nonforest.out$sc.lo)
+z.lo.comb <- data.frame(NPK2_grass.out$z.lo,
+                         hordorli_grass.out$z.lo,
+                         DDA_grass.out$z.lo,
+                         PB_A_grass.out$z.lo,
+                         PSS_nonforest.out$z.lo)
 
-sc.up.comb <- data.frame(NPK2_grass.out$sc.up,
-                         hordorli_grass.out$sc.up,
-                         DDA_grass.out$sc.up,
-                         PB_A_grass.out$sc.up,
-                         PSS_nonforest.out$sc.up)
+z.up.comb <- data.frame(NPK2_grass.out$z.up,
+                         hordorli_grass.out$z.up,
+                         DDA_grass.out$z.up,
+                         PB_A_grass.out$z.up,
+                         PSS_nonforest.out$z.up)
 
 iter6 <- 1000
 itdiv6 <- iter6/10
 trend.mean.mat <- matrix(data=NA, nrow=iter6, ncol=length(agest))
 
 for (i in 1:iter6) {
-  comb.ran.it <- matrix(data=NA,nrow=length(agest), ncol=dim(sc.up.comb)[2])
+  comb.ran.it <- matrix(data=NA,nrow=length(agest), ncol=dim(z.up.comb)[2])
   for (t in 1:length(agest)) {
-    for (r in 1:dim(sc.up.comb)[2]) {
-      comb.ran.it[t,r] <- runif(1, min=sc.lo.comb[t,r], max=sc.up.comb[t,r])
+    for (r in 1:dim(z.up.comb)[2]) {
+      comb.ran.it[t,r] <- runif(1, min=z.lo.comb[t,r], max=z.up.comb[t,r])
     } # end r
   } # end t
   trend.mean.mat[i,] <- apply(comb.ran.it, MARGIN=1, median, na.rm=T)
@@ -663,23 +688,23 @@ abline(v=29000, lty=2, col="red")
 abline(v=12000, lty=2, col="red")
 
 # upper/lower (scaled)
-sc.lo.comb <- data.frame(TOW9.out$sc.lo,
-                         MAT10_2B.out$sc.lo,
-                         mbelen.out$sc.lo)
+z.lo.comb <- data.frame(TOW9.out$z.lo,
+                         MAT10_2B.out$z.lo,
+                         mbelen.out$z.lo)
 
-sc.up.comb <- data.frame(TOW9.out$sc.up,
-                         MAT10_2B.out$sc.up,
-                         mbelen.out$sc.up)
+z.up.comb <- data.frame(TOW9.out$z.up,
+                         MAT10_2B.out$z.up,
+                         mbelen.out$z.up)
 
 iter6 <- 1000
 itdiv6 <- iter6/10
 trend.mean.mat <- matrix(data=NA, nrow=iter6, ncol=length(agest))
 
 for (i in 1:iter6) {
-  comb.ran.it <- matrix(data=NA,nrow=length(agest), ncol=dim(sc.up.comb)[2])
+  comb.ran.it <- matrix(data=NA,nrow=length(agest), ncol=dim(z.up.comb)[2])
   for (t in 1:length(agest)) {
-    for (r in 1:dim(sc.up.comb)[2]) {
-      comb.ran.it[t,r] <- runif(1, min=sc.lo.comb[t,r], max=sc.up.comb[t,r])
+    for (r in 1:dim(z.up.comb)[2]) {
+      comb.ran.it[t,r] <- runif(1, min=z.lo.comb[t,r], max=z.up.comb[t,r])
     } # end r
   } # end t
   trend.mean.mat[i,] <- apply(comb.ran.it, MARGIN=1, median, na.rm=T)
@@ -778,53 +803,53 @@ abline(v=29000, lty=2, col="red")
 abline(v=12000, lty=2, col="red")
 
 # upper/lower (scaled)
-sc.lo.comb <- data.frame(G6_4_grassland.out$sc.lo,
-                        SH19014_grass.out$sc.lo,
-                        G5_6_149P2_grassland.out$sc.lo,
-                        SO18300_grass.out$sc.lo,
-                        SO18323_grass.out$sc.lo,
-                        SO18302_grass.out$sc.lo,
-                        CB19_grass.out$sc.lo,
-                        MD063075_grass.out$sc.lo,
-                        NS_0725_grass.out$sc.lo,
-                        d17964_herbs.out$sc.lo,
-                        G4_K12P1_grasswood.out$sc.lo,
-                        GEOB10069_3_C4.out$sc.lo,
-                        GeoB10053_7_grass.out$sc.lo,
-                        BJ8_91GCC.out$sc.lo,
-                        GEOB69_3.out$sc.lo,
-                        SO189_144KL.out$sc.lo,
-                        MC1.out$sc.lo,
-                        GeoB10053_7.out$sc.lo)
+z.lo.comb <- data.frame(G6_4_grassland.out$z.lo,
+                        SH19014_grass.out$z.lo,
+                        G5_6_149P2_grassland.out$z.lo,
+                        SO18300_grass.out$z.lo,
+                        SO18323_grass.out$z.lo,
+                        SO18302_grass.out$z.lo,
+                        CB19_grass.out$z.lo,
+                        MD063075_grass.out$z.lo,
+                        NS_0725_grass.out$z.lo,
+                        d17964_herbs.out$z.lo,
+                        G4_K12P1_grasswood.out$z.lo,
+                        GEOB10069_3_C4.out$z.lo,
+                        GeoB10053_7_grass.out$z.lo,
+                        BJ8_91GCC.out$z.lo,
+                        GEOB69_3.out$z.lo,
+                        SO189_144KL.out$z.lo,
+                        MC1.out$z.lo,
+                        GeoB10053_7.out$z.lo)
 
-sc.up.comb <- data.frame(G6_4_grassland.out$sc.up,
-                         SH19014_grass.out$sc.up,
-                         G5_6_149P2_grassland.out$sc.up,
-                         SO18300_grass.out$sc.up,
-                         SO18323_grass.out$sc.up,
-                         SO18302_grass.out$sc.up,
-                         CB19_grass.out$sc.up,
-                         MD063075_grass.out$sc.up,
-                         NS_0725_grass.out$sc.up,
-                         d17964_herbs.out$sc.up,
-                         G4_K12P1_grasswood.out$sc.up,
-                         GEOB10069_3_C4.out$sc.up,
-                         GeoB10053_7_grass.out$sc.up,
-                         BJ8_91GCC.out$sc.up,
-                         GEOB69_3.out$sc.up,
-                         SO189_144KL.out$sc.up,
-                         MC1.out$sc.up,
-                         GeoB10053_7.out$sc.up)
+z.up.comb <- data.frame(G6_4_grassland.out$z.up,
+                         SH19014_grass.out$z.up,
+                         G5_6_149P2_grassland.out$z.up,
+                         SO18300_grass.out$z.up,
+                         SO18323_grass.out$z.up,
+                         SO18302_grass.out$z.up,
+                         CB19_grass.out$z.up,
+                         MD063075_grass.out$z.up,
+                         NS_0725_grass.out$z.up,
+                         d17964_herbs.out$z.up,
+                         G4_K12P1_grasswood.out$z.up,
+                         GEOB10069_3_C4.out$z.up,
+                         GeoB10053_7_grass.out$z.up,
+                         BJ8_91GCC.out$z.up,
+                         GEOB69_3.out$z.up,
+                         SO189_144KL.out$z.up,
+                         MC1.out$z.up,
+                         GeoB10053_7.out$z.up)
 
 iter6 <- 1000
 itdiv6 <- iter6/10
 trend.mean.mat <- matrix(data=NA, nrow=iter6, ncol=length(agest))
 
 for (i in 1:iter6) {
-  comb.ran.it <- matrix(data=NA,nrow=length(agest), ncol=dim(sc.up.comb)[2])
+  comb.ran.it <- matrix(data=NA,nrow=length(agest), ncol=dim(z.up.comb)[2])
   for (t in 1:length(agest)) {
-    for (r in 1:dim(sc.up.comb)[2]) {
-      comb.ran.it[t,r] <- runif(1, min=sc.lo.comb[t,r], max=sc.up.comb[t,r])
+    for (r in 1:dim(z.up.comb)[2]) {
+      comb.ran.it[t,r] <- runif(1, min=z.lo.comb[t,r], max=z.up.comb[t,r])
     } # end r
   } # end t
   trend.mean.mat[i,] <- apply(comb.ran.it, MARGIN=1, median, na.rm=T)
@@ -904,43 +929,43 @@ abline(v=29000, lty=2, col="red")
 abline(v=12000, lty=2, col="red")
 
 # upper/lower (scaled)
-sc.lo.comb <- data.frame(G6_4_grassland.out$sc.lo,
-                         SH19014_grass.out$sc.lo,
-                         G5_6_149P2_grassland.out$sc.lo,
-                         SO18300_grass.out$sc.lo,
-                         SO18323_grass.out$sc.lo,
-                         SO18302_grass.out$sc.lo,
-                         CB19_grass.out$sc.lo,
-                         MD063075_grass.out$sc.lo,
-                         NS_0725_grass.out$sc.lo,
-                         d17964_herbs.out$sc.lo,
-                         G4_K12P1_grasswood.out$sc.lo,
-                         GEOB10069_3_C4.out$sc.lo,
-                         GeoB10053_7_grass.out$sc.lo)
+z.lo.comb <- data.frame(G6_4_grassland.out$z.lo,
+                         SH19014_grass.out$z.lo,
+                         G5_6_149P2_grassland.out$z.lo,
+                         SO18300_grass.out$z.lo,
+                         SO18323_grass.out$z.lo,
+                         SO18302_grass.out$z.lo,
+                         CB19_grass.out$z.lo,
+                         MD063075_grass.out$z.lo,
+                         NS_0725_grass.out$z.lo,
+                         d17964_herbs.out$z.lo,
+                         G4_K12P1_grasswood.out$z.lo,
+                         GEOB10069_3_C4.out$z.lo,
+                         GeoB10053_7_grass.out$z.lo)
 
-sc.up.comb <- data.frame(G6_4_grassland.out$sc.up,
-                         SH19014_grass.out$sc.up,
-                         G5_6_149P2_grassland.out$sc.up,
-                         SO18300_grass.out$sc.up,
-                         SO18323_grass.out$sc.up,
-                         SO18302_grass.out$sc.up,
-                         CB19_grass.out$sc.up,
-                         MD063075_grass.out$sc.up,
-                         NS_0725_grass.out$sc.up,
-                         d17964_herbs.out$sc.up,
-                         G4_K12P1_grasswood.out$sc.up,
-                         GEOB10069_3_C4.out$sc.up,
-                         GeoB10053_7_grass.out$sc.up)
+z.up.comb <- data.frame(G6_4_grassland.out$z.up,
+                         SH19014_grass.out$z.up,
+                         G5_6_149P2_grassland.out$z.up,
+                         SO18300_grass.out$z.up,
+                         SO18323_grass.out$z.up,
+                         SO18302_grass.out$z.up,
+                         CB19_grass.out$z.up,
+                         MD063075_grass.out$z.up,
+                         NS_0725_grass.out$z.up,
+                         d17964_herbs.out$z.up,
+                         G4_K12P1_grasswood.out$z.up,
+                         GEOB10069_3_C4.out$z.up,
+                         GeoB10053_7_grass.out$z.up)
 
 iter6 <- 1000
 itdiv6 <- iter6/10
 trend.mean.mat <- matrix(data=NA, nrow=iter6, ncol=length(agest))
 
 for (i in 1:iter6) {
-  comb.ran.it <- matrix(data=NA,nrow=length(agest), ncol=dim(sc.up.comb)[2])
+  comb.ran.it <- matrix(data=NA,nrow=length(agest), ncol=dim(z.up.comb)[2])
   for (t in 1:length(agest)) {
-    for (r in 1:dim(sc.up.comb)[2]) {
-      comb.ran.it[t,r] <- runif(1, min=sc.lo.comb[t,r], max=sc.up.comb[t,r])
+    for (r in 1:dim(z.up.comb)[2]) {
+      comb.ran.it[t,r] <- runif(1, min=z.lo.comb[t,r], max=z.up.comb[t,r])
     } # end r
   } # end t
   trend.mean.mat[i,] <- apply(comb.ran.it, MARGIN=1, median, na.rm=T)
@@ -987,27 +1012,27 @@ abline(v=29000, lty=2, col="red")
 abline(v=12000, lty=2, col="red")
 
 # upper/lower (scaled)
-sc.lo.comb <- data.frame(BJ8_91GCC.out$sc.lo,
-                         GEOB69_3.out$sc.lo,
-                         SO189_144KL.out$sc.lo,
-                         MC1.out$sc.lo,
-                         GeoB10053_7.out$sc.lo)
+z.lo.comb <- data.frame(BJ8_91GCC.out$z.lo,
+                         GEOB69_3.out$z.lo,
+                         SO189_144KL.out$z.lo,
+                         MC1.out$z.lo,
+                         GeoB10053_7.out$z.lo)
 
-sc.up.comb <- data.frame(BJ8_91GCC.out$sc.up,
-                         GEOB69_3.out$sc.up,
-                         SO189_144KL.out$sc.up,
-                         MC1.out$sc.up,
-                         GeoB10053_7.out$sc.up)
+z.up.comb <- data.frame(BJ8_91GCC.out$z.up,
+                         GEOB69_3.out$z.up,
+                         SO189_144KL.out$z.up,
+                         MC1.out$z.up,
+                         GeoB10053_7.out$z.up)
 
 iter6 <- 1000
 itdiv6 <- iter6/10
 trend.mean.mat <- matrix(data=NA, nrow=iter6, ncol=length(agest))
 
 for (i in 1:iter6) {
-  comb.ran.it <- matrix(data=NA,nrow=length(agest), ncol=dim(sc.up.comb)[2])
+  comb.ran.it <- matrix(data=NA,nrow=length(agest), ncol=dim(z.up.comb)[2])
   for (t in 1:length(agest)) {
-    for (r in 1:dim(sc.up.comb)[2]) {
-      comb.ran.it[t,r] <- runif(1, min=sc.lo.comb[t,r], max=sc.up.comb[t,r])
+    for (r in 1:dim(z.up.comb)[2]) {
+      comb.ran.it[t,r] <- runif(1, min=z.lo.comb[t,r], max=z.up.comb[t,r])
     } # end r
   } # end t
   trend.mean.mat[i,] <- apply(comb.ran.it, MARGIN=1, median, na.rm=T)
