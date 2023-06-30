@@ -1,5 +1,5 @@
 # Testing evidence for savanna corridors in South-East Asia since the Last Glacial Maximum
-
+<a href="https://zenodo.org/badge/latestdoi/649545498"><img src="https://zenodo.org/badge/649545498.svg" alt="DOI"></a>
 Analysis of palaeoecological records across South-East Asia to determine the evidence for regime shifts between open savannas and dense tropical forests occurred since the Last Glacial Maximum
 
 Code contributors: <a href="https://github.com/rebjham">Rebecca Hamilton</a>, <a href="https://github.com/cjabradshaw">Corey J. A. Bradshaw</a>, <a href="https://github.com/FredSaltre">Frédérik Saltré</a>, <a href="https://github.com/wolfhagenj">Jesse Wolfhagen</a>
