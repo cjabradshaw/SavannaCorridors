@@ -1,0 +1,10 @@
+cff-version: 1.2SCu
+message: "If you use this code and these data, please cite as below."
+authors:
+  - family-names: Bradshaw
+    given-names: Corey
+    orcid: https://orcid.org/0000-0002-5328-7741
+title: cjabradshaw/SavannaCorridors: v1.2SCu
+version: v1.2SCu
+date-released: 2023-06-30
+            
