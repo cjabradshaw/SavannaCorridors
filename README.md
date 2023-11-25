@@ -19,7 +19,7 @@ The dominant paradigm is that large tracts of Southeast Asia’s lowland rainfor
 
 ## <a href="https://github.com/cjabradshaw/SavannaCorridors/tree/main/data">Data</a>
 ### Site-specific palaeoecological proxy series (raw data)
-<em>G6-4.csv</em>, <em>SH19014_grass.csv</em>, <em>G5_6_149P2.csv</em>, <em>NPK2.csv</em>, <em>hordorli.csv</em>, <em>18300.csv</em>, <em>18323.csv</em>, <em>18302.csv</em>, <em>CB19.csv</em>, <em>MD063075.csv</em>, <em>NS-0725.csv</em>, <em>17964.csv</em>, <em>DDA.csv</em>, <em>G4_K12P1.csv</em>, <em>PB-A.csv</em>, <em>GEOB100693.csv</em>, <em>PSS.csv</em>, <em>GeoB100537.csv</em>, <em>G5_2_056P.csv</em>, <em>LL2.csv</em>, <em>RD-3.csv</em>, <em>KUM3.csv</em>, <em>G4_K4P3.csv</em>, <em>BYK2.csv</em>, <em>TOW9.csv</em>, <em>BJ8_03_91GGC.csv</em>, <em>MAT10_2B.csv</em>, <em>SO189_144KL.csv</em>, <em>MC1.csv</em>, <em>mbelen.csv</em>
+- <em>G6-4.csv</em>, <em>SH19014_grass.csv</em>, <em>G5_6_149P2.csv</em>, <em>NPK2.csv</em>, <em>hordorli.csv</em>, <em>18300.csv</em>, <em>18323.csv</em>, <em>18302.csv</em>, <em>CB19.csv</em>, <em>MD063075.csv</em>, <em>NS-0725.csv</em>, <em>17964.csv</em>, <em>DDA.csv</em>, <em>G4_K12P1.csv</em>, <em>PB-A.csv</em>, <em>GEOB100693.csv</em>, <em>PSS.csv</em>, <em>GeoB100537.csv</em>, <em>G5_2_056P.csv</em>, <em>LL2.csv</em>, <em>RD-3.csv</em>, <em>KUM3.csv</em>, <em>G4_K4P3.csv</em>, <em>BYK2.csv</em>, <em>TOW9.csv</em>, <em>BJ8_03_91GGC.csv</em>, <em>MAT10_2B.csv</em>, <em>SO189_144KL.csv</em>, <em>MC1.csv</em>, <em>mbelen.csv</em>
 
 ### Compiled, age-resampled, standardised compilation of time series (34 ka to 2 ka), with site coordinates (lon/lat)
 - <em>SC_all_SACor.csv</em>
@@ -32,18 +32,7 @@ The dominant paradigm is that large tracts of Southeast Asia’s lowland rainfor
 
 ## R packages
 Scripts require following R libraries
-- <code>spatstat</code>
-- <code>gstat</code>
-- <code>maps</code>
-- <code>sp</code>
-- <code>ape</code>
-- <code>permute</code>
-- <code>ggplot2</code>
-- <code>dplyr</code>
-- <code>boot</code>
-- <code>tmvnsim</code>
-- <code>wCorr</code>
-- <code>hrbrthemes</code>
+- <code>spatstat</code>, <code>gstat</code>, <code>maps</code>, <code>sp</code>, <code>ape</code>, <code>permute</code>, <code>ggplot2</code>, <code>dplyr</code>, <code>boot</code>, <code>tmvnsim</code>, <code>wCorr</code>, <code>hrbrthemes</code>
 
 <a href="https://www.flinders.edu.au"><img align="bottom-left" src="www/Flinders_University_Logo_Horizontal_RGB_Master.png" alt="Flinders University logo" width="160" style="margin-top: 20px"></a>
 <a href="https://globalecologyflinders.com"><img align="bottom-left" src="www/GEL Logo Kaurna New Transp.png" alt="GEL logo" width="150" style="margin-top: 20px"></a> <a href="https://EpicAustralia.org.au"><img align="bottom-left" src="www/CabahFCL.jpg" alt="CABAH logo" width="150" style="margin-top: 20px"></a> <a href="https://www.anu.edu.au"><img align="bottom-left" src="www/anulogo.png" alt="ANU logo" width="110" style="margin-top: 20px"></a> <a href="https://www.shh.mpg.de/en"><img align="bottom-left" src="www/maxplancklogo.png" alt="Max Planck logo" width="110" style="margin-top: 20px"></a>
